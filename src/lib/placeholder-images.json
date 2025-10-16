@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "mechanical-block",
+      "description": "Image for Mechanical Block navigation",
+      "imageUrl": "https://picsum.photos/seed/mech/400/300",
+      "imageHint": "gears machine"
+    },
+    {
+      "id": "computer-block",
+      "description": "Image for Computer Block navigation",
+      "imageUrl": "https://picsum.photos/seed/comp/400/300",
+      "imageHint": "computer code"
+    },
+    {
+      "id": "admin-block",
+      "description": "Image for Admin Block navigation",
+      "imageUrl": "https://picsum.photos/seed/admin/400/300",
+      "imageHint": "office building"
+    },
+    {
+      "id": "workshop",
+      "description": "Image for Workshop navigation",
+      "imageUrl": "https://picsum.photos/seed/work/400/300",
+      "imageHint": "tools workshop"
+    },
+    {
+      "id": "library",
+      "description": "Image for Library navigation",
+      "imageUrl": "https://picsum.photos/seed/lib/400/300",
+      "imageHint": "books library"
+    },
+    {
+      "id": "canteen",
+      "description": "Image for Canteen navigation",
+      "imageUrl": "https://picsum.photos/seed/canteen/400/300",
+      "imageHint": "food court"
+    }
+  ]
+}
