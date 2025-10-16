@@ -66,8 +66,8 @@ export default function InteractiveMap() {
         >
           {/* Base and Title */}
           <path d="M55 55 L280 55 L280 65 L270 75 L100 75 Q80 75 80 55 Z" className="fill-primary/20" />
-          <text x="280" y="30" className="font-bold text-lg fill-primary">GOVT. POLYTECHNIC</text>
-          <text x="295" y="45" className="font-bold text-md fill-primary">SRINGAR GARHHAL</text>
+          <text x="200" y="30" textAnchor="middle" className="font-bold text-lg fill-primary">GOVT. POLYTECHNIC</text>
+          <text x="200" y="45" textAnchor="middle" className="font-bold text-md fill-primary">SRINGAR GARHHAL</text>
 
           {/* Buildings */}
           <g onClick={() => handleLocationClick('principal-quarter')} className="cursor-pointer">

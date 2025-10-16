@@ -22,6 +22,24 @@ const AnswerFromLinkOutputSchema = z.object({
 });
 export type AnswerFromLinkOutput = z.infer<typeof AnswerFromLinkOutputSchema>;
 
+// Function to fetch content from a URL
+const fetchWebpageContent = async (url: string) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // For simplicity, we'll just get the text.
+    // In a real app, you might want to parse the HTML and extract the main content.
+    const text = await response.text();
+    // Basic HTML tag stripping
+    return text.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
+  } catch (error: any) {
+    console.error('Error fetching webpage content:', error);
+    return `Failed to fetch content from ${url}. Error: ${error.message}`;
+  }
+};
+
 // Tool to fetch content from a URL
 const getWebpageContent = ai.defineTool(
   {
@@ -31,20 +49,7 @@ const getWebpageContent = ai.defineTool(
     outputSchema: z.string(),
   },
   async ({ url }) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      // For simplicity, we'll just get the text. 
-      // In a real app, you might want to parse the HTML and extract the main content.
-      const text = await response.text();
-      // Basic HTML tag stripping
-      return text.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
-    } catch (error: any) {
-      console.error('Error fetching webpage content:', error);
-      return `Failed to fetch content from ${url}. Error: ${error.message}`;
-    }
+    return fetchWebpageContent(url);
   }
 );
 
@@ -67,8 +72,9 @@ const answerFromLinkFlow = ai.defineFlow(
     outputSchema: AnswerFromLinkOutputSchema,
   },
   async (input) => {
+    const content = await fetchWebpageContent(input.url);
     const llmResponse = await answerFromLinkPrompt([
-        {role: 'user', content: `Context from ${input.url}: ${ai.toolRequest('getWebpageContent', { url: input.url })}`},
+        {role: 'user', content: `Context from ${input.url}: ${content}`},
         {role: 'user', content: `Based on the context above, please answer my question: ${input.query}`}
     ]);
 
