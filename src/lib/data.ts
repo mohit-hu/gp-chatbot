@@ -15,7 +15,30 @@ export const campusLocations = [
 export async function getAnnouncementsFromDB(): Promise<Announcement[]> {
   if (!db) {
     console.warn("Firebase is not configured, can't fetch announcements.");
-    return [];
+    // Return dummy data if Firebase is not configured
+    return [
+      {
+        id: '1',
+        title: 'Welcome to GP Chatbot',
+        description: 'Introducing our new AI-powered chatbot for student queries.',
+        date: new Date().toISOString(),
+        link: 'https://example.com/welcome',
+      },
+      {
+        id: '2',
+        title: 'Campus Maintenance Notice',
+        description: 'The library will be closed for maintenance on Friday.',
+        date: new Date(Date.now() - 86400000).toISOString(), // Yesterday
+        link: 'https://example.com/maintenance',
+      },
+      {
+        id: '3',
+        title: 'New Course Registration',
+        description: 'Registration for the new AI course is now open.',
+        date: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
+        link: 'https://example.com/registration',
+      },
+    ];
   }
   const announcementsCol = collection(db, 'announcements');
   const q = query(announcementsCol, orderBy('date', 'desc'));
