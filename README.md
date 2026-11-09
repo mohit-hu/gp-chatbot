@@ -28,45 +28,9 @@ Google Gemini / Google AI
 Firebase Firestore
 Radix UI and Lucide icons
 Project Structure
-gp-chatbot/
-├── src/
-│   ├── ai/
-│   │   ├── flows/
-│   │   │   ├── answer-from-link.ts
-│   │   │   ├── answer-student-queries.ts
-│   │   │   ├── extract-location-from-query.ts
-│   │   │   ├── stt-flow.ts
-│   │   │   ├ Summarize-announcements.ts
-│   │   │   └── tts-flow.ts
-│   │   ├── dev.ts
-│   │   └── genkit.ts
-│   ├── app/
-│   │   ├── admin/
-│   │   ├── announcements/
-│   │   ├── login/
-│   │   ├── actions.ts
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── components/
-│   │   ├── chatbot/
-│   │   ├── ui/
-│   │   ├── auth-provider.tsx
-│   │   └── interactive-map.tsx
-│   ├── hooks/
-│   ├── lib/
-│   │   ├── data.ts
-│   │   ├── firebase.ts
-│   │   └── types.ts
-│   └── ...
-├── .gitignore
-├── next.config.js
-├── next-env.d.ts
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── tsconfig.json
-└── README.md
+
+<img width="247" height="520" alt="image" src="https://github.com/user-attachments/assets/b9c6a4c9-f40f-4949-93c6-aa0a640cfa1f" />
+
 Getting Started
 Prerequisites
 Node.js 18+
@@ -75,17 +39,11 @@ Firebase project credentials
 Google AI API key
 Install dependencies
 npm install
-Environment variables
-Create a .env.local file in the project root:
+Environment variablesCreate a .env.local file in the project root:
 
-GOOGLE_API_KEY=your_google_ai_api_key
+<img width="612" height="187" alt="image" src="https://github.com/user-attachments/assets/c5d53735-4922-4712-b4df-3dd7e7a2e144" />
 
-NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_project.appspot.com
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
 Run the app
 Start the development server:
 
